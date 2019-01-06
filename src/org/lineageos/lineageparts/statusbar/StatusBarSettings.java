@@ -145,11 +145,13 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        int value = Integer.parseInt((String) newValue);
+        
         if (preference == mQuickPulldown) {
+            int value = Integer.parseInt((String) newValue);
             updateQuickPulldownSummary(value);
             return true;
         } else if (preference == mStatusBarBattery) {
+            int value = Integer.parseInt((String) newValue);
             enableStatusBarBatteryDependents(value);
             return true;
         } else if (preference == mQsPanelAlpha) {
