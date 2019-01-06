@@ -44,6 +44,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
+    private static final String QS_PANEL_ALPHA = "qs_panel_alpha";
 
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 3;
 
@@ -56,6 +57,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private LineageSystemSettingListPreference mStatusBarAmPm;
     private LineageSystemSettingListPreference mStatusBarBattery;
     private LineageSystemSettingListPreference mStatusBarBatteryShowPercent;
+    private SystemSettingSeekBarPreference mQsPanelAlpha;
 
     private PreferenceCategory mStatusBarBatteryCategory;
     private PreferenceCategory mStatusBarClockCategory;
@@ -87,6 +89,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
+
+        mQsPanelAlpha = (SystemSettingSeekBarPreference) findPreference(QS_PANEL_ALPHA);
+        int qsPanelAlpha = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.QS_PANEL_BG_ALPHA, 255, UserHandle.USER_CURRENT);
+        mQsPanelAlpha.setValue(qsPanelAlpha);
+        mQsPanelAlpha.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -138,10 +146,17 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         int value = Integer.parseInt((String) newValue);
         if (preference == mQuickPulldown) {
             updateQuickPulldownSummary(value);
+            return true;
         } else if (preference == mStatusBarBattery) {
             enableStatusBarBatteryDependents(value);
+            return true;
+        } else if (preference == mQsPanelAlpha) {
+            int bgAlpha = (Integer) newValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.QS_PANEL_BG_ALPHA, bgAlpha, UserHandle.USER_CURRENT);
+            return true;
         }
-        return true;
+        return false;
     }
 
     private void enableStatusBarBatteryDependents(int batteryIconStyle) {

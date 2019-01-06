@@ -746,5 +746,8 @@
     <!-- Data disabled icon -->
     <string name="data_disabled_icon_title">Show data disabled icon</string>
     <string name="data_disabled_icon_summary">Display the cross sign next to signal bar when data is disabled</string>
+    
+    <!-- QS background opacity -->
+    <string name="qs_panel_alpha_title">Opacity</string>
 
 </resources>
