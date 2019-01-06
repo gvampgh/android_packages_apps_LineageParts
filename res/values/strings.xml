@@ -750,4 +750,6 @@
     <!-- QS background opacity -->
     <string name="qs_panel_alpha_title">Opacity</string>
 
+    <string name="quick_settings_tweaks_title">Quick Settings</string>
+
 </resources>
