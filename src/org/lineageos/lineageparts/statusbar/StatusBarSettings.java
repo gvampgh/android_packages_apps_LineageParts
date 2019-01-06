@@ -17,6 +17,7 @@
 package org.lineageos.lineageparts.statusbar;
 
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceCategory;
@@ -30,6 +31,7 @@ import lineageos.preference.LineageSystemSettingListPreference;
 
 import org.lineageos.lineageparts.R;
 import org.lineageos.lineageparts.SettingsPreferenceFragment;
+import com.havoc.settings.preferences.SystemSettingSeekBarPreference;
 
 public class StatusBarSettings extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {

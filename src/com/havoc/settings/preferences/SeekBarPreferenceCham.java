@@ -23,7 +23,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.settings.R;
+import org.lineageos.lineageparts.R;
 
 public class SeekBarPreferenceCham extends Preference implements SeekBar.OnSeekBarChangeListener {
 
