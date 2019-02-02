@@ -43,12 +43,40 @@
     </PreferenceCategory>
 	
     
+    <com.crdroid.settings.preferences.CustomSeekBarPreference
+            android:key="qs_rows_portrait"
+            android:icon="@drawable/ic_qs_tile"
+            android:title="@string/qs_rows_portrait_title"
+            android:max="7"
+            android:min="1" />
+
+    <com.crdroid.settings.preferences.CustomSeekBarPreference
+            android:key="qs_rows_landscape"
+            android:icon="@drawable/ic_qs_tile"
+            android:title="@string/qs_rows_landscape_title"
+            android:max="3"
+            android:min="1" />
+
+	<com.crdroid.settings.preferences.CustomSeekBarPreference
+			android:key="qs_columns_portrait"
+			android:icon="@drawable/ic_qs_tile"
+			android:title="@string/qs_columns_portrait_title"
+        	android:max="10"
+        	android:min="1" />
+
+    <com.crdroid.settings.preferences.CustomSeekBarPreference
+            android:key="qs_columns_landscape"
+            android:icon="@drawable/ic_qs_tile"
+            android:title="@string/qs_columns_landscape_title"
+            android:max="10"
+            android:min="1" />
 
     <PreferenceScreen
         android:fragment="org.lineageos.lineageparts.statusbar.NetworkTrafficSettings"
         android:key="network_traffic_settings"
         android:title="@string/network_traffic_settings_title"
         android:summary="@string/network_traffic_settings_summary" />
+
 
     <PreferenceCategory
         android:title="@string/status_bar_icons_title">
