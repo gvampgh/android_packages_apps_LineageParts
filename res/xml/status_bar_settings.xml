@@ -29,7 +29,7 @@
             android:key="qs_panel_alpha"
             android:title="@string/qs_panel_alpha_title"
             android:max="255"
-            android:min="100"
+            android:min="0"
             settings:units=""
             android:defaultValue="255"
             android:persistent="false"/>    
