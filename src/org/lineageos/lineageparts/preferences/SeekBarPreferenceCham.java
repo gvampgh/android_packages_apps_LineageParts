@@ -1,4 +1,4 @@
-package com.havoc.settings.preferences;
+package org.lineageos.lineageparts.preferences;
 
 import android.content.Context;
 import android.content.res.TypedArray;

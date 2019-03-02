@@ -32,4 +32,5 @@
     <color name="trust_status_good">#36B37E</color>
     <color name="trust_status_poor">#FFAB00</color>
     <color name="trust_status_bad">#FF5630</color>
+    <color name="disabled_text_color">#66000000</color>
 </resources>

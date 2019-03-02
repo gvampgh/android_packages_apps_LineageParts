@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.havoc.settings.preferences;
+package org.lineageos.lineageparts.preferences;
 
 import android.content.ContentResolver;
 import android.preference.PreferenceDataStore;

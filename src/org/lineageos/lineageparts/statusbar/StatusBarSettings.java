@@ -32,8 +32,8 @@ import lineageos.providers.LineageSettings;
 
 import org.lineageos.lineageparts.R;
 import org.lineageos.lineageparts.SettingsPreferenceFragment;
-import com.havoc.settings.preferences.SystemSettingSeekBarPreference;
-import com.crdroid.settings.preferences.CustomSeekBarPreference;
+import org.lineageos.lineageparts.preferences.SystemSettingSeekBarPreference;
+import org.lineageos.lineageparts.preferences.CustomSeekBarPreference;
 
 public class StatusBarSettings extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
