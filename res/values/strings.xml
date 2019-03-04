@@ -771,5 +771,11 @@
     <string name="unit_seconds">seconds</string>
     <string name="unit_milliseconds">milliseconds</string>
     <string name="unit_pixels">dp</string>
+
+    <string name="lockscreen_and_qs">LockScreen and Quick Settings panel</string>
+    <string name="lockscreen_qs_disabled_title">Disable quick settings when locked</string>
+    <string name="lockscreen_qs_disabled_summary">Disable expanding quick settings on secure lock screens</string>
+
+
     
 </resources>

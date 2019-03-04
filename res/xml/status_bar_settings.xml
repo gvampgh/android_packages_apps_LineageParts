@@ -191,4 +191,16 @@
             android:defaultValue="false" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/lockscreen_and_qs">
+
+        <org.lineageos.lineageparts.preferences.SystemSettingSwitchPreference
+        	android:key="lockscreen_qs_disabled"
+        	android:title="@string/lockscreen_qs_disabled_title"
+        	android:summary="@string/lockscreen_qs_disabled_summary"
+        	android:defaultValue="false" />
+        	
+    </PreferenceCategory>
+
+
 </PreferenceScreen>
