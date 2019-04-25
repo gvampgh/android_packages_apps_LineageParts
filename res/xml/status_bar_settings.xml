@@ -49,7 +49,7 @@
             android:icon="@drawable/ic_qs_tile"
             android:title="@string/qs_rows_portrait_title"
             android:max="7"
-            settings:min="1"
+            android:min="1"
             settings:units="" />
 
         <org.lineageos.lineageparts.preferences.CustomSeekBarPreference
@@ -57,7 +57,7 @@
             android:icon="@drawable/ic_qs_tile"
             android:title="@string/qs_rows_landscape_title"
             android:max="3"
-            settings:min="1"
+            android:min="1"
             settings:units="" />
 
         <org.lineageos.lineageparts.preferences.CustomSeekBarPreference
@@ -65,7 +65,7 @@
             android:icon="@drawable/ic_qs_tile"
             android:title="@string/qs_columns_portrait_title"
             android:max="10"
-            settings:min="1"
+            android:min="1"
             settings:units="" />
 
     <org.lineageos.lineageparts.preferences.CustomSeekBarPreference
@@ -73,8 +73,8 @@
             android:icon="@drawable/ic_qs_tile"
             android:title="@string/qs_columns_landscape_title"
             android:max="10"
-            settings:min="1"
-	settings:units="" />
+            android:min="1"
+	        settings:units="" />
 
     <PreferenceScreen
         android:fragment="org.lineageos.lineageparts.statusbar.NetworkTrafficSettings"
