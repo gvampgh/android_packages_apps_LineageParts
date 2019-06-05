@@ -68,7 +68,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private CustomSeekBarPreference mQsColumnsPortrait;
     private CustomSeekBarPreference mQsColumnsLandscape;
 
-    private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 3;
+    private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 2;
 
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
@@ -220,10 +220,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             int value = Integer.parseInt((String) newValue);
             updateQuickPulldownSummary(value);
             return true;
-        } else if (preference == mStatusBarBattery) {
-            int value = Integer.parseInt((String) newValue);
-            enableStatusBarBatteryDependents(value);
-            return true;
         } else if (preference == mQsPanelAlpha) {
             int bgAlpha = (Integer) newValue;
             Settings.System.putIntForUser(getContentResolver(),
@@ -249,7 +245,20 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.QS_COLUMNS_LANDSCAPE, value, UserHandle.USER_CURRENT);
             return true;
+        }
 
+        int value = Integer.parseInt((String) newValue);
+        String key = preference.getKey();
+        switch (key) {
+            case STATUS_BAR_QUICK_QS_PULLDOWN:
+                updateQuickPulldownSummary(value);
+                break;
+            case STATUS_BAR_CLOCK_STYLE:
+                updateNetworkTrafficStatus(value);
+                break;
+            case STATUS_BAR_BATTERY_STYLE:
+                enableStatusBarBatteryDependents(value);
+                break;
         }
         return false;
     }
