@@ -260,7 +260,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 enableStatusBarBatteryDependents(value);
                 break;
         }
-        return false;
+        return true;
     }
 
     private void enableStatusBarBatteryDependents(int batteryIconStyle) {
