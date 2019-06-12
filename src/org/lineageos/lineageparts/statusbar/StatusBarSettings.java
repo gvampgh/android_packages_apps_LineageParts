@@ -211,8 +211,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 
- 		int valueLineage = Integer.parseInt((String) newValue);
-        String key = preference.getKey();
+ 		
         
 
         if (preference == mQuickPulldown) {
@@ -244,19 +243,24 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.QS_COLUMNS_LANDSCAPE, value, UserHandle.USER_CURRENT);
             return true;
-        } /* Lineage stuff */
-        else if ( key == STATUS_BAR_QUICK_QS_PULLDOWN) {
-        	updateQuickPulldownSummary(valueLineage);
-            return true;
-        } else if ( key == STATUS_BAR_CLOCK_STYLE) {
-        	updateNetworkTrafficStatus(valueLineage);
-            return true;
-        } else if ( key == STATUS_BAR_BATTERY_STYLE) {
-        	enableStatusBarBatteryDependents(valueLineage);
-        	return true;
-        }
+        } else {
 
-        return true;
+        	/* Lineage stuff */
+        	int value = Integer.parseInt((String) newValue);
+        	String key = preference.getKey();
+        	switch (key) {
+            	case STATUS_BAR_QUICK_QS_PULLDOWN:
+                	updateQuickPulldownSummary(value);
+                	break;
+            	case STATUS_BAR_CLOCK_STYLE:
+                	updateNetworkTrafficStatus(value);
+                	break;
+            	case STATUS_BAR_BATTERY_STYLE:
+                	enableStatusBarBatteryDependents(value);
+                	break;
+        	}
+			return true;
+		}
     }
 
     private void enableStatusBarBatteryDependents(int batteryIconStyle) {
