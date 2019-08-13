@@ -41,6 +41,12 @@
             android:entryValues="@array/status_bar_quick_qs_pulldown_values"
             android:defaultValue="0" />
 
+        <lineageos.preference.LineageSystemSettingSwitchPreference
+            android:key="qs_quick_pd_oinn"
+            android:title="@string/status_bar_quick_qs_pd_oinn_title"
+            android:summary="@string/status_bar_quick_qs_pd_oinn_summary"
+            android:defaultValue="false"/>
+
     </PreferenceCategory>
 	
     

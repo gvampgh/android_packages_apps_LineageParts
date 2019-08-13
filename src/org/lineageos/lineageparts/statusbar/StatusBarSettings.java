@@ -30,6 +30,7 @@ import android.util.ArraySet;
 import android.view.View;
 
 import lineageos.preference.LineageSystemSettingListPreference;
+import lineageos.preference.LineageSystemSettingSwitchPreference;
 import lineageos.providers.LineageSettings;
 
 import org.lineageos.lineageparts.R;
@@ -77,6 +78,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String NETWORK_TRAFFIC_SETTINGS = "network_traffic_settings";
 
     private LineageSystemSettingListPreference mQuickPulldown;
+    private LineageSystemSettingSwitchPreference mQuickPulldownOinn;
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
     private LineageSystemSettingListPreference mStatusBarBattery;
@@ -126,6 +128,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
+
+        mQuickPulldownOinn = (LineageSystemSettingSwitchPreference)
+        findPreference(LineageSettings.System.STATUS_BAR_QUICK_QS_PD_OINN);
+        mQuickPulldownOinn.setOnPreferenceChangeListener(this);
+        enableStatusBarQuickPulldownDependents(mQuickPulldown.getIntValue(0));
 
         mQsPanelAlpha = (CustomSeekBarPreference) findPreference(QS_PANEL_ALPHA);
         int qsPanelAlpha = Settings.System.getIntForUser(getContentResolver(),
@@ -211,9 +218,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 
- 		
-        
-
         if (preference == mQuickPulldown) {
             int value = Integer.parseInt((String) newValue);
             updateQuickPulldownSummary(value);
@@ -246,25 +250,39 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         } else {
 
         	/* Lineage stuff */
-        	int value = Integer.parseInt((String) newValue);
         	String key = preference.getKey();
         	switch (key) {
             	case STATUS_BAR_QUICK_QS_PULLDOWN:
-                	updateQuickPulldownSummary(value);
-                	break;
+                {
+                     int value = Integer.parseInt((String) newValue);
+                     updateQuickPulldownSummary(value);
+                     enableStatusBarQuickPulldownDependents(value);
+                     break;
+                }
             	case STATUS_BAR_CLOCK_STYLE:
-                	updateNetworkTrafficStatus(value);
-                	break;
+                {
+        	     int value = Integer.parseInt((String) newValue);
+                     updateNetworkTrafficStatus(value);
+                     break;
+                }
             	case STATUS_BAR_BATTERY_STYLE:
-                	enableStatusBarBatteryDependents(value);
-                	break;
+                {
+        	     int value = Integer.parseInt((String) newValue);
+                     enableStatusBarBatteryDependents(value);
+                     break;
+                }
+
         	}
-			return true;
-		}
+		return true;
+	}
     }
 
     private void enableStatusBarBatteryDependents(int batteryIconStyle) {
         mStatusBarBatteryShowPercent.setEnabled(batteryIconStyle != STATUS_BAR_BATTERY_STYLE_TEXT);
+    }
+
+    private void enableStatusBarQuickPulldownDependents(int quickPulldown) {
+        mQuickPulldownOinn.setEnabled(quickPulldown != PULLDOWN_DIR_NONE);
     }
 
     private void updateQuickPulldownSummary(int value) {
