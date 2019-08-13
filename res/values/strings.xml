@@ -500,6 +500,8 @@
     <string name="status_bar_battery_percentage_default">Hidden</string>
     <string name="status_bar_battery_percentage_text_inside">Inside the icon</string>
     <string name="status_bar_battery_percentage_text_next">Next to the icon</string>
+    <string name="status_bar_battery_pct_sign_title">Percentage sign</string>
+    <string name="status_bar_battery_pct_sign_summary">Show percentage sign beside number</string>
 
     <!-- Status bar - Brightness -->
     <string name="status_bar_brightness_category">Brightness</string>
