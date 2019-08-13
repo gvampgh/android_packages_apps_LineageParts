@@ -459,6 +459,8 @@
     <string name="status_bar_quick_qs_pulldown_off">Off</string>
     <string name="status_bar_quick_qs_pulldown_left">Left</string>
     <string name="status_bar_quick_qs_pulldown_right">Right</string>
+    <string name="status_bar_quick_qs_pd_oinn_title">Only if no notifications present</string>
+    <string name="status_bar_quick_qs_pd_oinn_summary">Quick pulldown only if no deletable notifications present</string>
     <string name="status_bar_double_tap_to_sleep_title">Double-tap to sleep</string>
     <string name="status_bar_double_tap_to_sleep_summary">Double-tap on the status bar to turn off the display</string>
 
