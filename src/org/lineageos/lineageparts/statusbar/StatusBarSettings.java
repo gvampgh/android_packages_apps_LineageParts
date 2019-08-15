@@ -221,6 +221,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         if (preference == mQuickPulldown) {
             int value = Integer.parseInt((String) newValue);
             updateQuickPulldownSummary(value);
+            enableStatusBarQuickPulldownDependents(value);
             return true;
         } else if (preference == mQsPanelAlpha) {
             int bgAlpha = (Integer) newValue;
