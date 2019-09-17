@@ -44,7 +44,7 @@ import lineageos.providers.LineageSettings;
 
 public class ButtonBacklightBrightness extends CustomDialogPreference<AlertDialog> implements
         SeekBar.OnSeekBarChangeListener {
-    private static final int DEFAULT_BUTTON_TIMEOUT = 5;
+    private static final int DEFAULT_BUTTON_TIMEOUT = 1;
 
     public static final String KEY_BUTTON_BACKLIGHT = "pre_navbar_button_backlight";
 
@@ -491,7 +491,7 @@ public class ButtonBacklightBrightness extends CustomDialogPreference<AlertDialo
         }
 
         public boolean isOnlyWhenPressedEnabled() {
-            return LineageSettings.System.getInt(mResolver, mOnlyWhenPressedSetting, 0) == 1;
+            return LineageSettings.System.getInt(mResolver, mOnlyWhenPressedSetting, 1) == 1;
         }
 
         public void setOnlyWhenPressedEnabled(boolean enabled) {
